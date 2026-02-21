@@ -102,12 +102,46 @@ plot(NorthHemi$date,
      ylab = "Temperature Anomolies in C",
      xlab = "Date",
      col = "red")
-points(SouthHemi$date,
+lines(SouthHemi$date,
        SouthHemi$TempAnom,
        type = "b",
        pch = 19,
        col = "darkblue")
 
 # same graph in ggplot 2
-ggplot(NorthHemi,aes(x=Date, y=Temperature Anomolies))
+NorthHemi$Hemisphere <- "Northern"
+SouthHemi$Hemisphere <- "Southern"
+# Filter for the data
+Hemi <- datCC %>%
+  filter(Entity == "Northern Hemisphere" | 
+           Entity == "Southern Hemisphere")
+# ggplot graph
+ggplot(Hemi,
+       aes(x = date, 
+           y = TempAnom, 
+           color = Entity)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Date",
+       y = "Temperature Anomalies (°C)") +
+  scale_color_manual(values = c("red", "darkblue")) 
           
+# Prompt 2
+# filter for the three countries
+NorthA <- datCO2 %>%
+  filter(Entity == "United States" |
+           Entity == "Mexico" |
+           Entity == "Canada")
+# All time emissions
+TotalEmissions <- NorthA %>%
+  group_by(Entity) %>%
+  summarise(Total_CO2 = sum(CO2, na.rm = TRUE))
+# 
+ggplot(TotalEmissions,
+       aes(x = Entity,
+           y = Total_CO2,
+           fill = Entity)) +
+  geom_col() +
+  labs(x = "Country",
+       y = "Total All-Time CO2 Emissions (tons)") +
+  scale_color_manual(values = c("red", "royalblue", "darkgoldenrod3"))

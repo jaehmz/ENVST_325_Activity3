@@ -136,12 +136,63 @@ NorthA <- datCO2 %>%
 TotalEmissions <- NorthA %>%
   group_by(Entity) %>%
   summarise(Total_CO2 = sum(CO2, na.rm = TRUE))
-# 
+# making the bar chart
 ggplot(TotalEmissions,
-       aes(x = Entity,
-           y = Total_CO2,
+       aes(x = Entity, 
+           y = Total_CO2, 
            fill = Entity)) +
   geom_col() +
+  scale_fill_manual(values = c("red", 
+                               "darkgoldenrod3", 
+                               "royalblue")) +
   labs(x = "Country",
-       y = "Total All-Time CO2 Emissions (tons)") +
-  scale_color_manual(values = c("red", "royalblue", "darkgoldenrod3"))
+       y = "Total All-Time CO2 Emissions (tons)")
+
+# Homework Prompts ----
+# Prompt 1
+# Filtering the selected countries
+Emissions3 <- datCO2 %>%
+  filter(Entity == "Iceland" |
+           Entity == "Japan" |
+           Entity == "Norway")
+# Plotting the countries using ggplot
+ggplot(Emissions3,
+       aes(x = Year,
+           y = CO2,
+           color = Entity)) +
+  geom_line(size = 1) +
+  labs(title = "CO2 Emissions Over Time",
+       x = "Year",
+       y = "Annual CO2 Emissions (tons)") +
+  scale_color_manual(values = c("#02529C",
+                                "#ffb7c5",
+                                "#BA0C2F")) +
+  theme_classic()
+
+# Prompt 2
+# Filter for world data from CO2
+WorldCO2 <- datCO2 %>%
+  filter(Entity == "World")
+# Filter for world data from CC
+WorldTemp <- datCC %>%
+  filter(Entity == "World")
+
+# plot for CO2 data
+ggplot(WorldCO2,
+       aes(x = Year, y = CO2)) +
+  geom_line(color = "darkgrey", linewidth = 1) +
+  labs(title = "Global CO₂ Emissions Over Time",
+       x = "Year",
+       y = "CO₂ Emissions (tons)") +
+  theme_classic()
+
+# plot for temp data
+ggplot(WorldTemp,
+       aes(x = date, y = TempAnom)) +
+  geom_line(color = "orange", linewidth = 1) +
+  labs(title = "Global Air Temperature Anomalies",
+       x = "Year",
+       y = "Temperature Anomaly (°C)") +
+  theme_classic()
+
+# Prompt 3

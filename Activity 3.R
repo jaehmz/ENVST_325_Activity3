@@ -196,3 +196,22 @@ ggplot(WorldTemp,
   theme_classic()
 
 # Prompt 3
+# reading in the data
+renew <- read.csv("annual-change-renewables.csv")
+
+# filtering for iceland
+Iceland <- renew %>%
+  filter(Entity == "Iceland")
+
+# making the graph
+ggplot(Iceland,
+aes(x = Year,
+    y = Renewables)) +
+  geom_line(color = "#02529C", linewidth = 1) +
+  labs(title = "Renewable Energy Change in Iceland",
+       x = "Year",
+       y = "Annual Change in Renewable Energy (Terrawatt Hours)") +
+  theme_classic()
+
+# Prompt 4
+# https://github.com/jaehmz/ENVST_325_Activity3.git

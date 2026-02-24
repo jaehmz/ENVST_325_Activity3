@@ -1,0 +1,39 @@
+{
+  "chart": {
+    "title": "Annual change in renewable energy generation",
+    "subtitle": "Change in renewable energy generation relative to the previous year, measured in [terawatt-hours](#dod:watt-hours) and using the [substitution method](#dod:substitutionmethod). It includes energy from hydropower, solar, wind, geothermal, wave and tidal, and bioenergy.",
+    "citation": "Energy Institute - Statistical Review of World Energy (2025)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/annual-change-renewables?v=1&csvType=full&useColumnShortNames=false",
+    "selection": [
+      "China",
+      "India",
+      "United States",
+      "France",
+      "Germany",
+      "Australia"
+    ]
+  },
+  "columns": {
+    "Renewables (TWh growth - equivalent)": {
+      "titleShort": "Annual change in renewables consumption",
+      "titleLong": "Annual change in renewables consumption - Using the substitution method",
+      "descriptionKey": [
+        "Primary energy is measured using the \"substitution method\" (also called \"input-equivalent\" primary energy). This method is used for non-fossil sources of electricity (namely renewables and nuclear), and measures the amount of fossil fuels that would be required by thermal power stations to generate the same amount of non-fossil electricity.\nFor example, if a country's nuclear power generated 100 TWh of electricity, and assuming that the efficiency of a standard thermal power plant is 38%, the input-equivalent primary energy for this country would be 100 TWh / 0.38 = 263 TWh = 0.95 EJ. This input-equivalent primary energy takes account of the inefficiencies in energy production from fossil fuels and provides a better approximation of each source's share of energy consumption. You can find more details in [the Statistical Review of World Energy's methodology document](https://www.energyinst.org/__data/assets/pdf_file/0003/1055541/Methodology.pdf)."
+      ],
+      "descriptionProcessing": "The annual change in energy consumption by source is calculated as the difference with respect to the previous year.",
+      "shortUnit": "TWh",
+      "unit": "terawatt-hours",
+      "timespan": "1966-2024",
+      "type": "Numeric",
+      "owidVariableId": 1077778,
+      "shortName": "renewables__twh_growth__equivalent",
+      "lastUpdated": "2025-06-27",
+      "nextUpdate": "2026-06-27",
+      "citationShort": "Energy Institute - Statistical Review of World Energy (2025) – with major processing by Our World in Data",
+      "citationLong": "Energy Institute - Statistical Review of World Energy (2025) – with major processing by Our World in Data. “Annual change in renewables consumption – Using the substitution method” [dataset]. Energy Institute, “Statistical Review of World Energy” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/1077778.metadata.json"
+    }
+  },
+  "dateDownloaded": "2026-02-22",
+  "activeFilters": {}
+}
